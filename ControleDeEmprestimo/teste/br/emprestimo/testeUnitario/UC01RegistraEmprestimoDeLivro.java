@@ -70,27 +70,31 @@ public class UC01RegistraEmprestimoDeLivro {
 	public void CT06UC01FB_registrar_emprestimo_com_livro_invalido_null() {
 		emprestimo.setLivro(null);
 	}
+	@Test
+	public void CT07_quando_usuario_null_erro() {
+		Usuario usuario  = null;
+		Emprestimo umEmprestimo = new Emprestimo();
+		try {
+			umEmprestimo.setUsuario(usuario);
+		} catch(Exception e) {
+			assertEquals("Usuario invalido",e.getMessage());
+		}
+		
+		
+		
+	}
+	@Test
+	public void CT08_quando_a_data_de_emprestimo_for_invalida_erro() {
+		String data = "09/05/2018";
+		Emprestimo umEmprestimo = new Emprestimo();
+		boolean resultadoObtido = umEmprestimo.validaData(data);
+		
+		assertTrue(resultadoObtido);
+		
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
