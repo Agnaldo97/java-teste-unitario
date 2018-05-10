@@ -79,19 +79,34 @@ public class UC01RegistraEmprestimoDeLivro {
 		} catch(Exception e) {
 			assertEquals("Usuario invalido",e.getMessage());
 		}
-		
-		
-		
+			
 	}
 	@Test
 	public void CT08_quando_a_data_de_emprestimo_for_invalida_erro() {
-		String data = "09/05/2018";
+		String data = "30/02/2018";
+		Emprestimo umEmprestimo = new Emprestimo();
+		boolean resultadoObtido = umEmprestimo.validaData(data);
+		
+		assertFalse(resultadoObtido);
+			
+	}
+	@Test
+	public void CT09_quando_a_data_de_emprestimo_for_invalida_erro() {
+		String data = "09-02-2018";
+		Emprestimo umEmprestimo = new Emprestimo();
+		boolean resultadoObtido = umEmprestimo.validaData(data);
+		
+		assertFalse(resultadoObtido);
+			
+	}
+	@Test
+	public void CT10_quando_a_data_de_emprestimo_for_valida() {
+		String data = "09/02/2018";
 		Emprestimo umEmprestimo = new Emprestimo();
 		boolean resultadoObtido = umEmprestimo.validaData(data);
 		
 		assertTrue(resultadoObtido);
-		
-		
+			
 	}
 	
 
